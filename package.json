@@ -1,0 +1,10 @@
+{
+  "name": "sheep-and-wolf",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sheep & Wolf - Strategic ecosystem simulation puzzle game",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node verify-all-levels.js"
+  }
+}
