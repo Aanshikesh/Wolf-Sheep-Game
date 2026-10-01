@@ -1444,7 +1444,20 @@ class SheepAndWolfApp {
   }
 }
 
-// Initialize on DOM load
-window.addEventListener('DOMContentLoaded', () => {
-  window.gameApp = new SheepAndWolfApp();
-});
+// Reliable Initialization (handles case where DOMContentLoaded fired before module executed)
+function initApp() {
+  if (!window.gameApp) {
+    try {
+      window.gameApp = new SheepAndWolfApp();
+    } catch (err) {
+      console.error('Error starting SheepAndWolfApp:', err);
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+

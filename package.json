@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Sheep & Wolf - Strategic ecosystem simulation puzzle game",
   "scripts": {
-    "start": "node server.js",
+    "build": "echo 'Build OK'",
+    "start": "node dev-server.js",
     "test": "node verify-all-levels.js"
   }
 }
