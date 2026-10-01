@@ -1,4 +1,4 @@
-// server.js - Zero-dependency static dev server using Node's built-in modules
+// scripts/dev-server.js - Zero-dependency static dev server using Node's built-in modules
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
 const PORT = process.env.PORT || 3000;
 
 const MIME_TYPES = {
@@ -23,10 +24,10 @@ const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/') reqPath = '/index.html';
 
-  const filePath = path.join(__dirname, reqPath);
+  const filePath = path.join(ROOT_DIR, reqPath);
 
   // Prevent directory traversal
-  if (!filePath.startsWith(__dirname)) {
+  if (!filePath.startsWith(ROOT_DIR)) {
     res.writeHead(403);
     res.end('Forbidden');
     return;

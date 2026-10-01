@@ -1,6 +1,6 @@
-// verify-all-levels.js
-import { LEVELS } from './src/levels.js';
-import { GameSimulator, findBestMovesForWeek, testLevelSolvability } from './src/simulator.js';
+// scripts/verify-all-levels.js
+import { LEVELS } from '../src/levels.js';
+import { GameSimulator, findBestMovesForWeek, testLevelSolvability } from '../src/simulator.js';
 
 console.log('====================================================');
 console.log('   SHEEP & WOLF - AUTOMATED LEVEL SOLVABILITY TEST  ');
@@ -24,7 +24,7 @@ for (const levelConfig of LEVELS) {
 
 console.log('\n====================================================');
 if (allPassed) {
-  console.log('🎉 ALL 6 LEVELS ARE MATHEMATICALLY VERIFIED SOLVABLE!');
+  console.log('🏆 ALL 6 LEVELS CONFIRMED SOLVABLE! Ecosystem stable.');
 } else {
   console.log('⚠️ Some levels need tuning.');
 }
